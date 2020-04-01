@@ -11,7 +11,7 @@ import random
 
 # root setup
 root = Tk()
-root.title('Number Game')
+root.title('sign in')
 root.geometry("200x150")
 root.configure(bg='black')
 fontStyle = tkFont.Font(family="times", size=10,)
