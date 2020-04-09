@@ -91,6 +91,7 @@ def check():
 
 # this function adds an username and password to the DB if the input meets the standerd
 def ok():    
+            
     user = e.get()# Gets entry text.
     Password = e2.get()
     if stored_users.get(user):
