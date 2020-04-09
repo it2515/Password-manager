@@ -15,7 +15,8 @@ import sqlite3
 import threading
 
 
-
+# Set up 
+#___________________________________________________________
 root = Tk()
 root.title('Password manager')
 root.geometry("300x250")
@@ -42,7 +43,6 @@ x = c.fetchall()
 conn.commit()
 conn.close()
 
-
 # converts stored tupels into a dictinary
 def Convert(tup, di): 
     di = dict(tup) 
@@ -50,11 +50,13 @@ def Convert(tup, di):
 
 # singin dictinary
 j = {} 
-
 # assigns dictinary to stored users
 stored_users = (Convert(x, j)) 
+#__________________________________________________________
 
-# this is the main apllictation 
+
+
+# this is the main applictation 
 def in_sys():
    
    button_check.destroy()
@@ -66,8 +68,10 @@ def in_sys():
    e2.destroy() 
    label3 = Label(root,  text ='Work in progress.', fg= 'black', font=fontStyle )
    label3.pack() 
-
-# this function is what checks the password and username to see if it is in the dictionary
+            
+   
+#sign in username and password
+# this function is what checks the password and username to see if it is in the dictionary/DB
 def check():
    
     user = e.get()# Gets entry text.
@@ -84,7 +88,8 @@ def check():
         e2.delete(0, END)
         label.config(text ='\nWrong password or username')
 
-# this function adds an username and password to the dictionary
+
+# this function adds an username and password to the DB if the input meets the standerd
 def ok():    
     user = e.get()# Gets entry text.
     Password = e2.get()
@@ -111,7 +116,7 @@ def ok():
         timer.start() 
         button_ok.destroy()
         return 
-        # stores password
+    # stores password and  username
     else:
         stored_users[user] = Password
         label.config(text='Account Added ',font=fontStyle)
@@ -150,7 +155,7 @@ def clear():
    e.destroy()
    e2.destroy() 
    main() 
-   
+
    
 # will be updated next week
 def main():
@@ -162,8 +167,6 @@ def main():
     global e
     global button_check
 
-    
-    
     label = Label(root,  text ='\nPlease Sing in.', fg= 'black', font=fontStyle )
     label.pack()
     label_1 = Label(root,  text ='Username.',  fg= 'black', font=fontStyle )
@@ -178,12 +181,11 @@ def main():
     e2 = Entry(root, width=25, borderwidth=2, bg = "floral white", show = '*')
     e2.pack()
 
-    
     button_check = Button(root, text = 'Login', bg = 'floral white', fg= 'black', padx=12, pady=2,font=fontStyle, command = check)
     button_check.pack()
 
 
-
+# Starting screen
 label = Label(root,  text ='\nPlease Sing in.', fg= 'black', font=fontStyle )
 label.pack()
 label_1 = Label(root,  text ='Username.', fg= 'black', font=fontStyle )
@@ -202,5 +204,6 @@ button_set = Button(root, text = 'New user', bg = 'floral white', fg = 'black', 
 button_set.pack(side='right')
 button_check = Button(root, text = 'Login', bg = 'floral white', fg= 'black',padx=12, pady=4,font=fontStyle, command = check)
 button_check.pack(side = 'left')
+
 
 root.mainloop()
