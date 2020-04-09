@@ -33,7 +33,7 @@ c.execute("""CREATE TABLE users(
 conn.commit()
 '''
 
-# pulls user name and password from DB
+# pulls username and password from DB
 conn = sqlite3.connect('sqlight3_Signin.db')
 c = conn.cursor()
 c.execute("SELECT * FROM users")
@@ -53,7 +53,7 @@ j = {}
 # assigns dictinary to stored users
 stored_users = (Convert(x, j)) 
 
-# this is the main apllictation
+# this is the main apllictation 
 def in_sys():
    
    button_check.destroy()
@@ -66,7 +66,7 @@ def in_sys():
    label3 = Label(root,  text ='Work in progress.', fg= 'black', font=fontStyle )
    label3.pack() 
 
-# this function is what checks the password and username to see if it is in the dictinary
+# this function is what checks the password and username to see if it is in the dictionary
 def check():
    
     user = e.get()# Gets entry text.
@@ -83,20 +83,20 @@ def check():
         e2.delete(0, END)
         label.config(text ='\nWrong password or username')
 
-# this function adds an user name and password to  the dictinary 
+# this function adds an username and password to the dictionary
 def ok():    
     user = e.get()# Gets entry text.
     Password = e2.get()
     if stored_users.get(user):
        label.config(text ='\n Username already exist',font=fontStyle)
-       #checks to see if there are anyspaces in the  password
+       #checks to see if there are any spaces in the password or username 
     elif ' ' in user or ' ' in Password:
         label.config(text ='\n No spaces in your password\n or username',font=fontStyle)
         timer = threading.Timer(2.0, new_user) 
         timer.start() 
         button_ok.destroy()
         return
-    # checks to see if there is nothing 
+    # checks to see if there is nothing in username and password 
     elif Password == '' or user == '':
         label.config(text ='\n Please enter/n a password and username',font=fontStyle)
         timer = threading.Timer(2.0, new_user) 
@@ -116,13 +116,16 @@ def ok():
         label.config(text='Account Added ',font=fontStyle)
         timer = threading.Timer(1.0, Restart) 
         timer.start()
-        # sql to store password
+        
+# sqlight to store password
         conn = sqlite3.connect('sqlight3_Signin.db')
         c = conn.cursor()
         c.execute("INSERT INTO users VALUES (:USER, :PASSWORD)",{'USER': user, 'PASSWORD': Password})
         conn.commit()          
         conn.close()
- # this function adds new user whole point of this function is to go to def ok       
+            
+            
+ # this function gos to newuser screen     
 def new_user():
     global button_ok
     
