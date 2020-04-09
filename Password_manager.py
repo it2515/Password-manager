@@ -4,6 +4,7 @@ This  is my take on a password signin
 I used  sqlight to store the password and username of people.
 This is the  very start of my password manager project 
 @author: Chris Thummel
+# edits to make hide password, clean code, change password requirement's, put back button.    
 
 
 '''
@@ -177,10 +178,9 @@ def main():
     e2 = Entry(root, width=25, borderwidth=2, bg = "floral white")
     e2.pack()
 
-    button_set = Button(root, text = 'New user', bg = 'floral white', fg = 'black', padx=12, pady=2, font=fontStyle, command =lambda: new_user)
-    button_set.pack(side='right')
-    button_check = Button(root, text = 'Continue', bg = 'floral white', fg= 'black', padx=12, pady=2,font=fontStyle, command = check)
-    button_check.pack(side = 'left')
+    
+    button_check = Button(root, text = 'Login', bg = 'floral white', fg= 'black', padx=12, pady=2,font=fontStyle, command = check)
+    button_check.pack()
 
 
 
@@ -200,7 +200,7 @@ e2.pack()
 
 button_set = Button(root, text = 'New user', bg = 'floral white', fg = 'black', padx=12, pady=4, font=fontStyle, command = new_user)
 button_set.pack(side='right')
-button_check = Button(root, text = 'Continue', bg = 'floral white', fg= 'black',padx=12, pady=4,font=fontStyle, command = check)
+button_check = Button(root, text = 'Login', bg = 'floral white', fg= 'black',padx=12, pady=4,font=fontStyle, command = check)
 button_check.pack(side = 'left')
 
 root.mainloop()
