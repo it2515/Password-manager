@@ -43,14 +43,14 @@ x = c.fetchall()
 conn.commit()
 conn.close()
 
-# converts stored tupels into a dictinary
+# converts stored tupels into a dictionary
 def Convert(tup, di): 
     di = dict(tup) 
     return di 
 
 # singin dictinary
 j = {} 
-# assigns dictinary to stored users
+# assigns dictionary to stored users
 stored_users = (Convert(x, j)) 
 #__________________________________________________________
 
