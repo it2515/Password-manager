@@ -115,7 +115,7 @@ def ok():
     else:
         stored_users[user] = Password
         label.config(text='Account Added ',font=fontStyle)
-        timer = threading.Timer(1.0, Restart) 
+        timer = threading.Timer(1.0, clear) 
         timer.start()
         
 # sqlight to store password
@@ -142,7 +142,7 @@ def new_user():
     
     
   # this resets the sgin in process  
-def Restart():
+def clear():
    button_ok.destroy()
    label.destroy()
    label_1.destroy()
@@ -161,7 +161,7 @@ def main():
     global e2
     global e
     global button_check
-    global button_set
+
     
     
     label = Label(root,  text ='\nPlease Sing in.', fg= 'black', font=fontStyle )
@@ -175,7 +175,7 @@ def main():
     label_2 = Label(root,  text =' Password.', fg= 'floral white', font=fontStyle )
     label_2.pack()
 
-    e2 = Entry(root, width=25, borderwidth=2, bg = "floral white")
+    e2 = Entry(root, width=25, borderwidth=2, bg = "floral white", show = '*')
     e2.pack()
 
     
@@ -195,7 +195,7 @@ e.pack()
 label_2 = Label(root,  text =' Password.', fg= 'black', font=fontStyle )
 label_2.pack()
 
-e2 = Entry(root, width=25, borderwidth=2, bg = "floral white")
+e2 = Entry(root, width=25, borderwidth=2, bg = "floral white", show ='*')
 e2.pack()
 
 button_set = Button(root, text = 'New user', bg = 'floral white', fg = 'black', padx=12, pady=4, font=fontStyle, command = new_user)
