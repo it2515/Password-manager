@@ -4,7 +4,7 @@ This  is my take on a password signin
 I used  sqlight to store the password and username of people.
 This is the  very start of my password manager project 
 @author: Chris Thummel
-# edits to make hide password, clean code, change password requirement's, put back button.    
+# edits to make put back button.    
 
 
 '''
