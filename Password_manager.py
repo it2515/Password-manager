@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 ''' 
-This  is my take on a password signin 
+This  is my take on a password signin and manager.
 I used  sqlight to store the password and username of people.
 this program will store the infromation of your accounts in a sqlite db.
 this program also fetures a random password genorator this genorator
