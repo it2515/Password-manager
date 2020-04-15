@@ -5,9 +5,9 @@ I used  sqlight to store the password and username of people.
 this program will store the infromation of your accounts in a sqlite db.
 this program also fetures a random password genorator this genorator
 only creates 4 charecters perclick. Expect this program to be updated by 
-next mouth.
+next month.
 
-!!!functing not compleat!!! 
+!!!functing not complete!!! 
 
 @author: Chris Thummel
 '''
