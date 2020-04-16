@@ -10,7 +10,7 @@ The project also incorporates a random password generator to help you create a s
 I enjoyed working on this project and will be back soon to clean and update it.
 This program makes use of tkinter to create a user interface.
 
-The layout of this program is relatively simple everything has been put into functions so it shouldn't be tool difficult to figure it out.
+The layout of this program is relatively simple everything has been put into functions so it shouldn't be too difficult to figure it out.
 
 
 The program uses sqlite to store all of your infromation on your PC.
