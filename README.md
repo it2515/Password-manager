@@ -22,7 +22,7 @@ The sqlite uses the variable 'name' to create a table for each user that logs in
 .Each table will automatically be created for you.
 
 Updates will becoming soon on this project, however I first want to get started with my other projects before I finish updating this program.
-updates will include a more aesthetic layout with images, update and delete function and the ability to select the length of your password you want to generate.
+The updates will include a more aesthetic layout with images, update and delete function and the ability to select the length of your password you want to generate.
 
 If there is any qustions about this program feel free to message me.
 
