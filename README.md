@@ -1,9 +1,9 @@
 # Password-manager
 Password manager
 
-Python3
-Tkinter
-sqlite3
+# Python3
+# Tkinter
+# sqlite3
 
 This program makes use of tkinter to create a user interface that you can interact with. 
 The program is desinged to help you manage your online account information.
