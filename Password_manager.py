@@ -268,13 +268,13 @@ def Save (self):
           c = conn.cursor()
           c.execute('''INSERT INTO {tab} VALUES (:name_of_user, :website, :user_name, :email, :Password);'''.format(tab=name),
 
-			{   'name_of_user': nameofuser.get(),
+			{'name_of_user': nameofuser.get(),
 
 				'website': Website.get(),
         
-        'email': email.get(),
+        			'email': email.get(),
 
-        'user_name': user_name.get(),
+        			'user_name': user_name.get(),
 
 				'Password': password_A.get(),})
           
