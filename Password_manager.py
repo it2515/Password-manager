@@ -3,9 +3,11 @@
 This  is my take on a password signin 
 I used  sqlight to store the password and username of people.
 this program will store the infromation of your accounts in a sqlite db.
-this program also fetures a random password genorator this genorator
+this program also fetures a random password generator this generator
 only creates 4 charecters perclick. Expect this program to be updated by 
-next mouth.
+next month.
+
+You need to Add the directroy for the photos...
 
 !!!functing not compleat!!! 
 
