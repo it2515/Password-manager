@@ -3,9 +3,9 @@
 This  is my take on a password signin 
 I used  sqlight to store the password and username of people.
 this program will store the infromation of your accounts in a sqlite db.
-this program also fetures a random password generator this generator
+this program also fetures a random password genorator this genorator
 only creates 4 charecters perclick. Expect this program to be updated by 
-next month.
+next mouth.
 
 !!!functing not compleat!!! 
 
@@ -23,7 +23,7 @@ import random
 
 root = Tk()
 root.title('Password manager')
-root.iconbitmap(r'C:\Users\thumm\OneDrive\Pictures\lock.ico')
+root.iconbitmap(r'\Photos\lock.ico')
 root.geometry("300x350")
 fontStyle = tkFont.Font(family="times", size=11,)
 
@@ -560,7 +560,7 @@ def login():
 
 # Starting screen
 
-my_img = ImageTk.PhotoImage(Image.open(r'C:\Users\thumm\OneDrive\Pictures\3-512.png'))
+my_img = ImageTk.PhotoImage(Image.open(r'Photos\3-512.png'))
 my_lable = Label(image=my_img)
 my_lable.pack()
 label = Label(root,  text ='\nPlease Sign in.', fg= 'black', font=fontStyle )
