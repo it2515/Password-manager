@@ -8,7 +8,7 @@ sqlite3
 
 ## About 
 This program makes use of tkinter to create a user interface that you can interact with. 
-The program is desinged to help you manage your online account information.
+The program is desinged to help you manage your online account information. This project requires you to create an account to accsess the main progam.
 The project also incorporates a random password generator to help you create a secure password.
 I enjoyed working on this project and will be back soon to clean and update it.
 
