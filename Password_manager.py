@@ -3,11 +3,9 @@
 This  is my take on a password signin 
 I used  sqlight to store the password and username of people.
 this program will store the infromation of your accounts in a sqlite db.
-this program also fetures a random password generator this generator
+this program also fetures a random password genorator this genorator
 only creates 4 charecters perclick. Expect this program to be updated by 
-next month.
-
-You need to Add the directroy for the photos...
+next mouth.
 
 !!!functing not compleat!!! 
 
@@ -25,7 +23,7 @@ import random
 
 root = Tk()
 root.title('Password manager')
-root.iconbitmap(r'lock.ico')
+root.iconbitmap(r'C:\Users\thumm\OneDrive\Pictures\lock.ico')
 root.geometry("300x350")
 fontStyle = tkFont.Font(family="times", size=11,)
 
@@ -49,6 +47,9 @@ x = c.fetchall()
 conn.commit()
 conn.close()
 
+
+
+
 # converts stored tupels into a dictinary
 def Convert(tup, di): 
     di = dict(tup) 
@@ -62,20 +63,20 @@ stored_users = (Convert(x, j))
 #___________________________________________________________________________________
 
 
-# deletes sql entry
-# need to add message box in next update.
+
 def delete ():
     conn = sqlite3.connect('sqlight3_Storage.db')
     c = conn.cursor()
     
     c.execute(f"DELETE from {name} WHERE oid=" + id_box.get())
 
+    
     conn.commit()
     conn.close()
     Destroy1()
 
 
-# saves updated entry 
+
 def save (id):
            print(id)
            print(str(nameofuser.get()))
@@ -100,11 +101,10 @@ def save (id):
                 )
           
            conn.commit()
-           conn.close()
-           root1.destroy()   
+           conn.close()   
 
 
-# this large function allows you to select an id and update or delete it...
+
 def SELECT():
   
   global id_box
@@ -118,30 +118,29 @@ def SELECT():
   button_view.destroy()
   button_store.destroy()
   button_edit.destroy()
-# this is to pull out the information on the delete box this is how i deied to do it 
+# this is to pull out the information o the delete box this is how i deied to do it 
   def get():
     JC = id_box.get()
     update(JC)
-# this function takes the id number and displays that entry on your new screen for you to edit.
-# you may have to reopen the program to see the changes 
-# foe some reson I had to put ths function into the select function.
+# this function takes the id number and displays that entry on your screen
   def update (id):
 
-      def edit():
-        GET = id_box.get()
-        save(GET)
-      
       global nameofuser
       global Website
       global email
       global user_name
       global password_A
 
-# new window 
+
       root1 = Tk()
       root1.title('Update')
       root1.geometry("350x300")
       root1.configure()  
+
+
+      def edit():
+        GET = id_box.get()
+        save(GET)
 
       nameofuser = Entry(root1, width=30)
       nameofuser.grid(row = 1, column=1, padx=20, pady=(10, 0))
@@ -165,15 +164,17 @@ def SELECT():
       passwordl_new = Label(root1, text = 'Password:')
       passwordl_new.grid(row = 5, column=0, padx=20)
      
+
       upd= Button(root1, text= 'Save Record', command= edit)
       upd.grid(row = 6, column= 0, columnspan= 2, pady= 10, padx=10, ipadx=140)
 
-      # connects to database
+   
+     
       conn = sqlite3.connect('sqlight3_Storage.db')
       c = conn.cursor()
       c.execute(f"SELECT * FROM {name} WHERE oid = " + id)
       
-      # inserts entry into the new window
+      
       RECORD = c.fetchall()
       for records in RECORD:
          nameofuser.insert(0, records[0])
@@ -186,7 +187,7 @@ def SELECT():
          conn.close()
       
       
-# pulls all entrys with there id number for editing
+
   conn = sqlite3.connect('sqlight3_Storage.db')
   c = conn.cursor()
   Je = 'SELECT *, oid FROM {}'.format(name)
@@ -197,7 +198,7 @@ def SELECT():
   Print_record = ''
   for y in x:
           Print_record += str(y) + "\n"
-  # window display       
+        
   lable = Label(root, text = Print_record)
   lable.grid(row = 6, column=1, padx=20)
   conn.commit()
@@ -218,7 +219,8 @@ def SELECT():
   Button_Back.grid( row=5, column = 0, columnspan = 2, ipadx=85, pady =(15,0), padx=42 )
 
 
-# displays all the entrys
+
+
 def display ():
     
     global print_record
@@ -245,7 +247,7 @@ def display ():
     
     button_Back = Button(root, text='Back', padx =200, pady =10, bg = 'floral white', fg = 'black',
       activebackground = "gray63",font=fontStyle, command= Destroy)
-    button_Back.grid(row = 2, column = 0,columnspan =2)
+    button_Back.grid(row = 2, column = 1,columnspan =2)
             
     label = Label(root, text = print_record, font=fontStyle)
     label.grid(row = 3, column = 0, columnspan = 2)
@@ -270,13 +272,13 @@ def Save (self):
           c = conn.cursor()
           c.execute('''INSERT INTO {tab} VALUES (:name_of_user, :website, :user_name, :email, :Password);'''.format(tab=name),
 
-			{'name_of_user': nameofuser.get(),
+			{   'name_of_user': nameofuser.get(),
 
 				'website': Website.get(),
         
-        			'email': email.get(),
+        'email': email.get(),
 
-        			'user_name': user_name.get(),
+        'user_name': user_name.get(),
 
 				'Password': password_A.get(),})
           
@@ -370,7 +372,6 @@ def Destroy ():
     button_Back.destroy()
     in_menu()
 
-
 def Destroy1 ():
    
    button_update.destroy()
@@ -381,6 +382,8 @@ def Destroy1 ():
    id_box_label.destroy()
    in_menu()
   
+
+    
 
 # this is the main menu
 def in_menu():
@@ -487,7 +490,7 @@ def ok(self):
     else:
         stored_users[user] = Password
         label.config(text='Account Added. ',font=fontStyle)
-        timer = threading.Timer(1.5, Restart) 
+        timer = threading.Timer(1.5, lambda:Clear("N/A")) 
         timer.start()
         # sql to store password
         conn = sqlite3.connect('sqlight3_Signin.db')
@@ -557,7 +560,7 @@ def login():
 
 # Starting screen
 
-my_img = ImageTk.PhotoImage(Image.open(r'3-512.png'))
+my_img = ImageTk.PhotoImage(Image.open(r'C:\Users\thumm\OneDrive\Pictures\3-512.png'))
 my_lable = Label(image=my_img)
 my_lable.pack()
 label = Label(root,  text ='\nPlease Sign in.', fg= 'black', font=fontStyle )
